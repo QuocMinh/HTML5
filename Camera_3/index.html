@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Thông tin khách hàng</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        h1, h2, h3, h4, .card, .jumbotron { margin-top: 15px; }
+        .header-form {
+            padding: 10px;
+            font-size: 18px;
+        }
+        .jumbotron {
+            border-top: 4px solid #0d47a1 ;
+            border-bottom: 4px solid #0d47a1 ;
+        }
+        .form-control {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #283593;">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Liên hệ</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Châu Quốc Minh
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Cài đặt</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Đăng xuất</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div style="height: 100vh; margin-bottom: 10px">
+        <!-- Main container -->
+        <div class="container-fluid">
+            <!-- <h2 style="color: #1a237e; margin-top: 15px">Thông tin khách hàng</h2>
+            <hr> -->
+            <!-- Main ROW -->
+            <div class="row">
+                    
+                <!-- Customer Infomation -->
+                <div class="col-xl-6 col-md-12">
+                    <!-- Jumbotron -->
+                    <div class="container customer-form boxshadow">
+                        <form>
+                            <p class="header-form primary-color">Thông tin thuê bao</p>
+                            <!-- Form Container : Thong tin ca nhan -->
+                            <div class="container">
+                                <div class="form-row">
+                                    <div class="col-md-6 form-group">
+                                        <label for="phone" class="col-form-label">Số điện thoại</label>
+                                        <input type="text" id="phone" class="form-control">
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                    
+                                        <label for="simSerial" class="col-form-label">Sim serial</label>
+                                        <input type="text" id="simSerial" class="form-control">
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <!-- Form Container : Thong tin ca nhan -->
+                            <p class="header-form primary-color">Thông tin khách hàng</p>
+                            <!-- Form Container : Thong tin ca nhan -->
+                            <div class="container">
+                                <div class="form-row">
+                                    <div class="col-md-8 form-group">
+                                        <label for="ho" class="col-form-label">Họ tên khách hàng</label>
+                                        <input type="text" id="ho" class="form-control">
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label for="gioitinh" class="col-form-label">Giới tính</label>
+                                        <select name="gioitinh" id="gioitinh" class="form-control">
+                                            <option value="">Nam</option>
+                                            <option value="">Nữ</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6 form-group">
+                                        <label for="ngaysinh" class="col-form-label">Ngày sinh</label>
+                                        <input type="date" id="ngaysinh" class="form-control">
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label for="quoctich" class="col-form-label">Quốc Tịch</label>
+                                        <select name="thanhpho" id="thanhpho" class="form-control">
+                                            <option value="">Việt Nam</option>
+                                            <option value="">Nước ngoài</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-3 form-group">
+                                        <label for="thanhpho" class="col-form-label">Tỉnh/TP</label>
+                                        <select name="thanhpho" id="thanhpho" class="form-control">
+                                            <option value="">--------</option>
+                                            <option value="">Bạc Liêu</option>
+                                            <option value="">Cần Thơ</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <label for="quanhuyen" class="col-form-label">Quận/Huyện</label>
+                                        <select name="quanhuyen" id="quanhuyen" class="form-control">
+                                            <option value="">--------</option>
+                                            <option value="">Ninh Kiều</option>
+                                            <option value="">Vĩnh Lợi</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <label for="phuongxa" class="col-form-label">Phường/Xã</label>
+                                        <select name="phuongxa" id="phuongxa" class="form-control">
+                                            <option value="">--------</option>
+                                            <option value="">Xuân Khánh</option>
+                                            <option value="">Long Thạnh</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <label for="diachi" class="col-form-label">Địa chỉ</label>
+                                        <input type="text" id="diachi" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6 form-group">
+                                        <label for="email" class="col-form-label">Email</label>
+                                        <input type="email" id="email" class="form-control">
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label for="sdt2" class="col-form-label">Số điện thoại liên hệ</label>
+                                        <input type="phone" id="sdt2" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-4 form-group">
+                                        <label for="cmnd" class="col-form-label">CMND / Passport</label>
+                                        <input type="text" id="cmnd" class="form-control">
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label for="ngaycap" class="col-form-label">Ngày cấp</label>
+                                        <input type="date" id="ngaycap" class="form-control">
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label for="noicap" class="col-form-label">Nơi cấp</label>
+                                        <input type="text" id="noicap" class="form-control">
+                                    </div>
+                                </div>
+                                <div align="right">
+                                    <input type="submit" value="Cập nhật" class="btn btn-primary btn-md">
+                                    <input type="reset" value="Reset" class="btn btn-secondary btn-md">
+                                </div>
+                            </div> <!-- Form Container : Thong tin ca nhan -->
+                            
+                        </form>
+                    </div>
+                    <!-- Jumbotron -->
+                </div> <!-- Customer Infomation -->
+
+                <!-- Camera -->
+                <div class="col-xl-6 col-md-12">
+                    <!-- Row cam 1 -->
+                    <div class="row">
+                        <div class="col-md-12 col-lg-6">
+                            <!--Panel-->
+                            <div class="card">
+                                <div class="card-header">
+                                    Ảnh CMND mặt trước
+                                </div>
+                                <div class="card-body">
+                                    <select id="sel_cmnd_1" class="form-control"></select>
+                                    <video autoplay="true" id="camera_cmnd_1" style="width: 100%"></video>
+                                    <canvas id="can_cmnd_1" style="width: 100%; display: none"></canvas>
+                                    <div class="row">
+                                        div.col-sm-8
+                                    </div>
+                                    <div class="btn-group" role="group">
+                                        <button id="btn_cmnd_1" class="btn primary-color-dark">Chụp ảnh</button>
+                                        <button id="btn_cmnd_1_resnap" class="btn primary-color-dark" disabled>Chụp lại</button>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-6">
+                            <!--Panel-->
+                            <div class="card">
+                                <div class="card-header">
+                                     Ảnh CMND mặt sau
+                                </div>
+                                <div class="card-body">
+                                    <select id="sel_cmnd_2" class="form-control"></select>
+                                    <video autoplay="true" id="camera_cmnd_2" style="width: 100%"></video>
+                                    <canvas id="can_cmnd_2" style="width: 100%; display: none"></canvas>
+                                    <div class="btn-group" role="group">
+                                        <button id="btn_cmnd_2" class="btn primary-color-dark">Chụp ảnh</button>
+                                        <button id="btn_cmnd_2_resnap" class="btn primary-color-dark" disabled>Chụp lại</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- Row cam 1 -->
+                    <!-- Row cam 2 -->
+                    <div class="row">
+                        <div class="col-md-12 col-lg-6">
+                            <!--Panel-->
+                            <div class="card">
+                                <div class="card-header">
+                                    Ảnh khách hàng
+                                </div>
+                                <div class="card-body">
+                                    <select id="sel_avatar" class="form-control"></select>
+                                    <video autoplay="true" id="camera_avatar" style="width: 100%"></video>
+                                    <canvas id="can_avatar" style="width: 100%; display: none"></canvas>
+                                    <div class="btn-group" role="group">
+                                        <button id="btn_avatar" class="btn primary-color-dark">Chụp ảnh</button>
+                                        <button id="btn_avatar_resnap" class="btn primary-color-dark" disabled>Chụp lại</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-6">
+                            <!--Panel-->
+                            <div class="card">
+                                <div class="card-header">
+                                    Chữ ký
+                                </div>
+                                <div class="card-body">
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- Row cam 2 -->
+                </div> <!-- Camera -->
+            </div> <!-- Main ROW -->
+        </div> <!-- Main container -->
+    </div>
+    
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- My script -->
+    <script src="js/canvas-toBlob.js"></script>
+    <script src="js/FileSaver.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
