@@ -1,0 +1,13 @@
+.color-indigo-600 {
+    background-color: #3949AB;
+    color: white;
+}
+
+.card {
+    margin-top: 10px;
+    border: 1px solid #3949AB;
+}
+
+.form-control, .btn {
+    border-radius: 0;
+}

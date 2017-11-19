@@ -2,27 +2,44 @@ const url = 'https://graph.facebook.com/v2.11/';
 const accessToken = localStorage.getItem('accessToken') ? localStorage.getItem('accessToken') : "";
 
 //==================================================================================================================
-// GRAPH API CALL
+// FACEBOOK GRAPH API CALL
 //==================================================================================================================
+var postId = '';
 
 getCmtPost = (postid) => {
-    var urlExec = url 
-        + postid + '/comments?fields=from,message,attachment'
-        + '&access_token=' + accessToken
-        + '&limit=500';
-    // var tbody = document.querySelector('#tbodyCmts');    
-    // var tbody = document.getElementById('tbodyCmts');
+    postId = postid;
 
-    $.ajax({
-        type: "GET",
-        url: urlExec,
-        dataType: "json",
-        success: function (response) {
-            var cmnts = response.data;
-            setCmntsToTable(cmnts, 'tblCmts');
-        },
-        error: (err) => console.error(err)
-    });
+    if(localStorage.getItem(postId)) {        
+        var strCmnts = localStorage.getItem(postId);
+        var cmnts = JSON.parse(strCmnts);
+
+        setCmntsToTable(cmnts, 'tblCmts');
+    } else {
+        var urlExec = url
+            + postId + '/comments?fields=from,message,attachment'
+            + '&access_token=' + accessToken
+            + '&limit=500';
+
+        $.ajax({
+            type: "GET",
+            url: urlExec,
+            dataType: "json",
+            success: function (response) {
+                var cmnts = response.data;
+                setCmntsToTable(cmnts, 'tblCmts');
+
+                // Luu comment vao local storage de lan sau su dung
+                var strCmnts = JSON.stringify(cmnts);
+                localStorage.setItem(postId, strCmnts);
+            },
+            error: (err) => console.error(err)
+        });
+    }
+}
+updateCmtPost = () => {
+    localStorage.removeItem(postId);  
+    document.getElementById('tblCmts').removeChild('tbody');
+    getCmtPost(postId);
 }
 
 //==================================================================================================================
@@ -67,13 +84,19 @@ setCmntsToTable = (cmnts, tableId) => {
     }, this);
     table.appendChild(tbody);
 }
-saveToken = () => { localStorage.setItem('accessToken', $('#accessToken').val()); location.reload(); $('#accessToken').val("") };
+saveToken = () => {
+    if ($('#accessToken').val() === '' || $('#accessToken').val() === null) return;
+    localStorage.setItem('accessToken', $('#accessToken').val()); location.reload(); $('#accessToken').val("");
+};
+getIdPost = () => {}
 
 //==================================================================================================================
 // Add event listener
 //==================================================================================================================
 
 document.querySelector('#btnTKSave').addEventListener('click', saveToken);
+document.querySelector('#btnRefreshPost').addEventListener('click', updateCmtPost);
+document.querySelector('#btnLinkPost').addEventListener('click', getIdPost);
 
 //==================================================================================================================
 // EXECUTE FUNCTION AFTER LOAD PAGE
