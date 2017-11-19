@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Facebook tools</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <!-- Container main -->
+    <div class="container">
+        <!-- Alert access token -->
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+            <strong>Chú ý!</strong> Bạn cần có Access token để thực hiện.
+            <a href="https://developers.facebook.com/tools/explorer/145634995501895" target="_blank">
+                Click vào đây!
+            </a>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div> <!-- Alert access token -->
+        <!-- Form Access token -->
+        <div class="card">
+            <div class="card-header"> Lấy Access token </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="accessToken">Access Token</label>
+                    <input type="text" name=accessToken"" id="accessToken" class="form-control">
+                </div>
+                <button id="btnTKSave" class="btn btn-primary">Lưu Token</button>
+            </div>
+        </div> <!-- Form Access token -->
+        <!-- Main form -->
+        <div class="card">
+            <div class="card-header"> Công cụ </div>
+            <div class="card-body">
+                <table class="table" id="tblCmts">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Facebook</th>
+                            <th>Comment</th>
+                            <th>Photo</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                </table>
+                <tbody></tbody>
+        </div> <!-- Main form -->
+    </div> <!-- Container main -->
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/graphApi_1.js"></script>
+</body>
+
+</html>
