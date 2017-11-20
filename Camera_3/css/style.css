@@ -1,3 +1,17 @@
+h1, h2, h3, h4, .card, .jumbotron { margin-top: 15px; }
+.header-form {
+    padding: 10px;
+    font-size: 18px;
+}
+.jumbotron {
+    border-top: 4px solid #0d47a1 ;
+    border-bottom: 4px solid #0d47a1 ;
+}
+.form-control {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 .card > .card-header {
     background-color: #303F9F;
     color: white;

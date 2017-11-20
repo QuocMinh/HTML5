@@ -1,34 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Thông tin khách hàng</title>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="css/style.css" rel="stylesheet">
-    <style>
-        h1, h2, h3, h4, .card, .jumbotron { margin-top: 15px; }
-        .header-form {
-            padding: 10px;
-            font-size: 18px;
-        }
-        .jumbotron {
-            border-top: 4px solid #0d47a1 ;
-            border-bottom: 4px solid #0d47a1 ;
-        }
-        .form-control {
-            margin-top: 0;
-            margin-bottom: 0;
-        }
-    </style>
 </head>
-
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #283593;">
         <a class="navbar-brand" href="#">Navbar</a>
@@ -134,7 +117,7 @@
                                     </div>
                                     <div class="col-md-6 form-group">
                                         <label for="quoctich" class="col-form-label">Quốc Tịch</label>
-                                        <select name="thanhpho" id="thanhpho" class="form-control">
+                                        <select name="quoctich" id="quoctich" class="form-control">
                                             <option value="">Việt Nam</option>
                                             <option value="">Nước ngoài</option>
                                         </select>
@@ -144,23 +127,19 @@
                                     <div class="col-md-3 form-group">
                                         <label for="thanhpho" class="col-form-label">Tỉnh/TP</label>
                                         <select name="thanhpho" id="thanhpho" class="form-control">
-                                            <option value="">--------</option>
-                                            <option value="">Bạc Liêu</option>
-                                            <option value="">Cần Thơ</option>
+                                            <option style="font-style: italic; font-weight: bold">Chọn ...</option>
                                         </select>
                                     </div>
                                     <div class="col-md-3 form-group">
                                         <label for="quanhuyen" class="col-form-label">Quận/Huyện</label>
                                         <select name="quanhuyen" id="quanhuyen" class="form-control">
-                                            <option value="">--------</option>
-                                            <option value="">Ninh Kiều</option>
-                                            <option value="">Vĩnh Lợi</option>
+                                            <option style="font-style: italic; font-weight: bold">Chọn ...</option>
                                         </select>
                                     </div>
                                     <div class="col-md-3 form-group">
                                         <label for="phuongxa" class="col-form-label">Phường/Xã</label>
                                         <select name="phuongxa" id="phuongxa" class="form-control">
-                                            <option value="">--------</option>
+                                            <option style="font-style: italic; font-weight: bold">Chọn ...</option>
                                             <option value="">Xuân Khánh</option>
                                             <option value="">Long Thạnh</option>
                                         </select>
@@ -182,7 +161,7 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-4 form-group">
-                                        <label for="cmnd" class="col-form-label">CMND / Passport</label>
+                                        <label for="cmnd" class="col-form-label">CMND</label>
                                         <input type="text" id="cmnd" class="form-control">
                                     </div>
                                     <div class="col-md-4 form-group">
@@ -199,7 +178,6 @@
                                     <input type="reset" value="Reset" class="btn btn-secondary btn-md">
                                 </div>
                             </div> <!-- Form Container : Thong tin ca nhan -->
-                            
                         </form>
                     </div>
                     <!-- Jumbotron -->
@@ -216,17 +194,13 @@
                                     Ảnh CMND mặt trước
                                 </div>
                                 <div class="card-body">
-                                    <select id="sel_cmnd_1" class="form-control"></select>
                                     <video autoplay="true" id="camera_cmnd_1" style="width: 100%"></video>
                                     <canvas id="can_cmnd_1" style="width: 100%; display: none"></canvas>
-                                    <div class="row">
-                                        div.col-sm-8
-                                    </div>
-                                    <div class="btn-group" role="group">
+                                    <div class="btn-group" role="group" style="width: 100%">
+                                        <select id="sel_cmnd_1" class="form-control" style="width: 100%"></select>
                                         <button id="btn_cmnd_1" class="btn primary-color-dark">Chụp ảnh</button>
-                                        <button id="btn_cmnd_1_resnap" class="btn primary-color-dark" disabled>Chụp lại</button>
+                                        <button id="btn_cmnd_1_resnap" class="btn btn-dark" style="display: none">Chụp lại</button>
                                     </div>
-                                    
                                 </div>
                             </div>
                         </div>
@@ -237,12 +211,12 @@
                                      Ảnh CMND mặt sau
                                 </div>
                                 <div class="card-body">
-                                    <select id="sel_cmnd_2" class="form-control"></select>
                                     <video autoplay="true" id="camera_cmnd_2" style="width: 100%"></video>
                                     <canvas id="can_cmnd_2" style="width: 100%; display: none"></canvas>
-                                    <div class="btn-group" role="group">
+                                    <div class="btn-group" role="group" style="width: 100%">
+                                        <select id="sel_cmnd_2" class="form-control" style="width: 100%"></select>
                                         <button id="btn_cmnd_2" class="btn primary-color-dark">Chụp ảnh</button>
-                                        <button id="btn_cmnd_2_resnap" class="btn primary-color-dark" disabled>Chụp lại</button>
+                                        <button id="btn_cmnd_2_resnap" class="btn btn-dark" style="display: none">Chụp lại</button>
                                     </div>
                                 </div>
                             </div>
@@ -257,12 +231,12 @@
                                     Ảnh khách hàng
                                 </div>
                                 <div class="card-body">
-                                    <select id="sel_avatar" class="form-control"></select>
                                     <video autoplay="true" id="camera_avatar" style="width: 100%"></video>
                                     <canvas id="can_avatar" style="width: 100%; display: none"></canvas>
-                                    <div class="btn-group" role="group">
+                                    <div class="btn-group" role="group" style="width: 100%">
+                                        <select id="sel_avatar" class="form-control" style="width: 100%"></select>
                                         <button id="btn_avatar" class="btn primary-color-dark">Chụp ảnh</button>
-                                        <button id="btn_avatar_resnap" class="btn primary-color-dark" disabled>Chụp lại</button>
+                                        <button id="btn_avatar_resnap" class="btn btn-dark" style="display: none">Chụp lại</button>
                                     </div>
                                 </div>
                             </div>
@@ -270,10 +244,22 @@
                         <div class="col-md-12 col-lg-6">
                             <!--Panel-->
                             <div class="card">
-                                <div class="card-header">
-                                    Chữ ký
-                                </div>
+                                <div class="card-header"> Chữ ký </div>
                                 <div class="card-body">
+                                    <div class="row justify-content-md-center" style="margin-bottom: 6px">
+                                        <div class="col-sm-6 col-md-6" style="padding-left: 5px; padding-right: 5px">
+                                            <img src="images/KH.PNG" alt="" class="img-fluid img-thumbnail">
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom: 15px">
+                                        <div class="col-sm-6 col-md-6" style="padding-left: 15px; padding-right: 3px">
+                                            <img src="images/QLCH.PNG" alt="" class="img-fluid img-thumbnail">
+                                        </div>
+                                        <div class="col-sm-6 col-md-6" style="padding-left: 3px; padding-right: 15px">
+                                            <img src="images/GDV.PNG" alt="" class="img-fluid img-thumbnail">
+                                        </div>
+                                    </div>
+                                    <button id="btn_avatar" class="btn primary-color-dark btn-block">Refresh</button>
                                 </div>
                             </div>
                         </div>
