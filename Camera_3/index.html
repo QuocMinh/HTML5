@@ -13,187 +13,206 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #283593;">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Liên hệ</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        Châu Quốc Minh
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Cài đặt</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Đăng xuất</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <div style="height: 100vh; margin-bottom: 10px">
+    <div style="height: 100vh;">
+        <!-- Nav Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #283593;">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Liên hệ</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Châu Quốc Minh
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Cài đặt</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Đăng xuất</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Nav Bar -->
+
         <!-- Main container -->
         <div class="container-fluid">
             <!-- <h2 style="color: #1a237e; margin-top: 15px">Thông tin khách hàng</h2>
             <hr> -->
             <!-- Main ROW -->
-            <div class="row">
+            <div class="row justify-content-md-center">
                     
                 <!-- Customer Infomation -->
-                <div class="col-xl-6 col-md-12">
-                    <!-- Jumbotron -->
+                <div class="col-xl-5 col-md-12">
+                    <!-- Jumbotron Thong tin thue bao -->
                     <div class="container customer-form boxshadow">
-                        <form>
-                            <p class="header-form primary-color">Thông tin thuê bao</p>
-                            <!-- Form Container : Thong tin ca nhan -->
+                        <div class="header-form primary-color" style="margin-bottom: 10px">
+                            <span>Thông tin thuê bao</span>
+                            <span id="mgd" style="float: right; margin-left: 5px">
+                                <small>
+                                    <i>(Chưa có mã giao dịch)</i>
+                                </small>
+                            </span>
+                            <span style="float: right">MGD: </span>
+                        </div>
+                        <!-- Form : Thong tin thue bao -->
+                        <form id="isdnForm">
                             <div class="container">
                                 <div class="form-row">
                                     <div class="col-md-6 form-group">
-                                        <label for="phone" class="col-form-label">Số điện thoại</label>
-                                        <input type="text" id="phone" class="form-control">
+                                        <label for="isdn" class="col-form-label">Số điện thoại</label>
+                                        <input type="text" id="isdn" class="form-control" required placeholder="Nhập số điện thoại của khách hàng">
                                     </div>
                                     <div class="col-md-6 form-group">
-                                    
-                                        <label for="simSerial" class="col-form-label">Sim serial</label>
-                                        <input type="text" id="simSerial" class="form-control">
+                                        <label for="serial" class="col-form-label">Sim serial</label>
+                                        <input type="text" id="serial" class="form-control" required placeholder="Nhập số Serial">
                                     </div>
-                                    
+                                </div>
+                                <input type="submit" id="checkISDN" value="Kiểm tra" class="btn btn-primary">
+                                <input type="reset" value="Reset" class="btn btn-secondary btn-md">
+                            </div>
+                        </form> <!-- Form : Thong tin thue bao -->
+                    </div> <!-- Jumbotron Thong tin thue bao -->
+                    <!-- Jumbotron Thong tin Khach hang -->
+                    <div id="custInfoContainer" class="container customer-form boxshadow" style="display: none">
+                        <!-- Form Container : Thong tin ca nhan -->
+                        <form>
+                            <!-- <p class="header-form primary-color">Thông tin khách hàng</p> -->
+                            <h3 style="color: #3F51B5">Thông tin khách hàng</h3>
+                            <hr class="hr-primary">
+                            <div class="form-row">
+                                <div class="col-md-4 form-group">
+                                    <label for="doituong" class="col-form-label">Đối tượng</label>
+                                    <select name="doituong" id="doituong" class="form-control"></select>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="ho" class="col-form-label">Họ tên khách hàng</label>
+                                    <input type="text" id="ho" class="form-control">
+                                </div>
+                                <div class="col-md-2 form-group">
+                                    <label for="gioitinh" class="col-form-label">Giới tính</label>
+                                    <select name="gioitinh" id="gioitinh" class="form-control">
+                                        <option value="">Nam</option>
+                                        <option value="">Nữ</option>
+                                    </select>
                                 </div>
                             </div>
-                            <!-- Form Container : Thong tin ca nhan -->
-                            <p class="header-form primary-color">Thông tin khách hàng</p>
-                            <!-- Form Container : Thong tin ca nhan -->
-                            <div class="container">
-                                <div class="form-row">
-                                    <div class="col-md-8 form-group">
-                                        <label for="ho" class="col-form-label">Họ tên khách hàng</label>
-                                        <input type="text" id="ho" class="form-control">
-                                    </div>
-                                    <div class="col-md-4 form-group">
-                                        <label for="gioitinh" class="col-form-label">Giới tính</label>
-                                        <select name="gioitinh" id="gioitinh" class="form-control">
-                                            <option value="">Nam</option>
-                                            <option value="">Nữ</option>
-                                        </select>
-                                    </div>
+                            <div class="form-row">
+                                <div class="col-md-6 form-group">
+                                    <label for="ngaysinh" class="col-form-label">Ngày sinh</label>
+                                    <input type="date" id="ngaysinh" class="form-control">
                                 </div>
-                                <div class="form-row">
-                                    <div class="col-md-6 form-group">
-                                        <label for="ngaysinh" class="col-form-label">Ngày sinh</label>
-                                        <input type="date" id="ngaysinh" class="form-control">
-                                    </div>
-                                    <div class="col-md-6 form-group">
-                                        <label for="quoctich" class="col-form-label">Quốc Tịch</label>
-                                        <select name="quoctich" id="quoctich" class="form-control">
-                                            <option value="">Việt Nam</option>
-                                            <option value="">Nước ngoài</option>
-                                        </select>
-                                    </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="quoctich" class="col-form-label">Quốc Tịch</label>
+                                    <select name="quoctich" id="quoctich" class="form-control">
+                                        <option value="">Việt Nam</option>
+                                        <option value="">Nước ngoài</option>
+                                    </select>
                                 </div>
-                                <div class="form-row">
-                                    <div class="col-md-3 form-group">
-                                        <label for="thanhpho" class="col-form-label">Tỉnh/TP</label>
-                                        <select name="thanhpho" id="thanhpho" class="form-control">
-                                            <option style="font-style: italic; font-weight: bold">Chọn ...</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-3 form-group">
-                                        <label for="quanhuyen" class="col-form-label">Quận/Huyện</label>
-                                        <select name="quanhuyen" id="quanhuyen" class="form-control">
-                                            <option style="font-style: italic; font-weight: bold">Chọn ...</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-3 form-group">
-                                        <label for="phuongxa" class="col-form-label">Phường/Xã</label>
-                                        <select name="phuongxa" id="phuongxa" class="form-control">
-                                            <option style="font-style: italic; font-weight: bold">Chọn ...</option>
-                                            <option value="">Xuân Khánh</option>
-                                            <option value="">Long Thạnh</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-3 form-group">
-                                        <label for="diachi" class="col-form-label">Địa chỉ</label>
-                                        <input type="text" id="diachi" class="form-control">
-                                    </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-3 form-group">
+                                    <label for="thanhpho" class="col-form-label">Tỉnh/TP</label>
+                                    <select name="thanhpho" id="thanhpho" class="form-control">
+                                        <option style="font-style: italic; font-weight: bold">Chọn ...</option>
+                                    </select>
                                 </div>
-                                <div class="form-row">
-                                    <div class="col-md-6 form-group">
-                                        <label for="email" class="col-form-label">Email</label>
-                                        <input type="email" id="email" class="form-control">
-                                    </div>
-                                    <div class="col-md-6 form-group">
-                                        <label for="sdt2" class="col-form-label">Số điện thoại liên hệ</label>
-                                        <input type="phone" id="sdt2" class="form-control">
-                                    </div>
+                                <div class="col-md-3 form-group">
+                                    <label for="quanhuyen" class="col-form-label">Quận/Huyện</label>
+                                    <select name="quanhuyen" id="quanhuyen" class="form-control">
+                                        <option style="font-style: italic; font-weight: bold">Chọn ...</option>
+                                    </select>
                                 </div>
-                                <div class="form-row">
-                                    <div class="col-md-4 form-group">
-                                        <label for="cmnd" class="col-form-label">CMND</label>
-                                        <input type="text" id="cmnd" class="form-control">
-                                    </div>
-                                    <div class="col-md-4 form-group">
-                                        <label for="ngaycap" class="col-form-label">Ngày cấp</label>
-                                        <input type="date" id="ngaycap" class="form-control">
-                                    </div>
-                                    <div class="col-md-4 form-group">
-                                        <label for="noicap" class="col-form-label">Nơi cấp</label>
-                                        <input type="text" id="noicap" class="form-control">
-                                    </div>
+                                <div class="col-md-3 form-group">
+                                    <label for="phuongxa" class="col-form-label">Phường/Xã</label>
+                                    <select name="phuongxa" id="phuongxa" class="form-control">
+                                        <option style="font-style: italic; font-weight: bold">Chọn ...</option>
+                                        <option value="">Xuân Khánh</option>
+                                        <option value="">Long Thạnh</option>
+                                    </select>
                                 </div>
-                                <div align="right">
-                                    <input type="submit" value="Cập nhật" class="btn btn-primary btn-md">
-                                    <input type="reset" value="Reset" class="btn btn-secondary btn-md">
+                                <div class="col-md-3 form-group">
+                                    <label for="diachi" class="col-form-label">Địa chỉ</label>
+                                    <input type="text" id="diachi" class="form-control">
                                 </div>
-                            </div> <!-- Form Container : Thong tin ca nhan -->
-                        </form>
-                    </div>
-                    <!-- Jumbotron -->
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6 form-group">
+                                    <label for="email" class="col-form-label">Email</label>
+                                    <input type="email" id="email" class="form-control">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="sdt2" class="col-form-label">Số điện thoại liên hệ</label>
+                                    <input type="phone" id="sdt2" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-4 form-group">
+                                    <label for="cmnd" class="col-form-label">CMND</label>
+                                    <input type="text" id="cmnd" class="form-control">
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label for="ngaycap" class="col-form-label">Ngày cấp</label>
+                                    <input type="date" id="ngaycap" class="form-control">
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label for="noicap" class="col-form-label">Nơi cấp</label>
+                                    <input type="text" id="noicap" class="form-control">
+                                </div>
+                            </div>
+                            <div align="right">
+                                <input type="submit" value="Cập nhật" class="btn btn-primary btn-md">
+                                <input type="reset" value="Reset" class="btn btn-secondary btn-md">
+                            </div>
+                        </form><!-- Form Container : Thong tin ca nhan -->
+                    </div> <!-- Jumbotron Thong tin Khach hang -->
                 </div> <!-- Customer Infomation -->
 
                 <!-- Camera -->
-                <div class="col-xl-6 col-md-12">
+                <div id="cameraContainer" class="col-xl-7 col-md-12" style="display: none">
                     <!-- Row cam 1 -->
                     <div class="row">
-                        <div class="col-md-12 col-lg-6">
+                        <!-- Col cam 1 -->
+                        <div class="col-md-12 col-lg-4">
                             <!--Panel-->
                             <div class="card">
                                 <div class="card-header">
                                     Ảnh CMND mặt trước
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body card-body-camera">
                                     <video autoplay="true" id="camera_cmnd_1" style="width: 100%"></video>
                                     <canvas id="can_cmnd_1" style="width: 100%; display: none"></canvas>
                                     <div class="btn-group" role="group" style="width: 100%">
@@ -203,14 +222,15 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-12 col-lg-6">
+                        </div> <!-- Col cam 1 -->
+                        <!-- Col cam 2 -->
+                        <div class="col-md-12 col-lg-4">
                             <!--Panel-->
                             <div class="card">
                                 <div class="card-header">
                                      Ảnh CMND mặt sau
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body card-body-camera">
                                     <video autoplay="true" id="camera_cmnd_2" style="width: 100%"></video>
                                     <canvas id="can_cmnd_2" style="width: 100%; display: none"></canvas>
                                     <div class="btn-group" role="group" style="width: 100%">
@@ -220,17 +240,15 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div> <!-- Row cam 1 -->
-                    <!-- Row cam 2 -->
-                    <div class="row">
-                        <div class="col-md-12 col-lg-6">
+                        </div> <!-- Col cam 2 -->
+                        <!-- Col cam 3 -->
+                        <div class="col-md-12 col-lg-4">
                             <!--Panel-->
                             <div class="card">
                                 <div class="card-header">
                                     Ảnh khách hàng
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body card-body-camera">
                                     <video autoplay="true" id="camera_avatar" style="width: 100%"></video>
                                     <canvas id="can_avatar" style="width: 100%; display: none"></canvas>
                                     <div class="btn-group" role="group" style="width: 100%">
@@ -241,22 +259,28 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12 col-lg-6">
+                        <!-- Col cam 3 -->
+                    </div> <!-- Row cam 1 -->
+                    
+                    <!-- Row cam 2 -->
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12">
                             <!--Panel-->
                             <div class="card">
                                 <div class="card-header"> Chữ ký </div>
                                 <div class="card-body">
-                                    <div class="row justify-content-md-center" style="margin-bottom: 6px">
-                                        <div class="col-sm-6 col-md-6" style="padding-left: 5px; padding-right: 5px">
+                                    <div class="row justify-content-md-center" style="margin-bottom: 15px">
+                                        <div class="col-sm-6 col-md-4">
                                             <img src="images/KH.PNG" alt="" class="img-fluid img-thumbnail">
+                                            <h5 style="text-align: center; margin-top: 8px">Khách hàng</h5>
                                         </div>
-                                    </div>
-                                    <div class="row" style="margin-bottom: 15px">
-                                        <div class="col-sm-6 col-md-6" style="padding-left: 15px; padding-right: 3px">
+                                        <div class="col-sm-6 col-md-4">
                                             <img src="images/QLCH.PNG" alt="" class="img-fluid img-thumbnail">
+                                            <h5 style="text-align: center; margin-top: 8px">Quản lý cửa hàng</h5>
                                         </div>
-                                        <div class="col-sm-6 col-md-6" style="padding-left: 3px; padding-right: 15px">
+                                        <div class="col-sm-6 col-md-4">
                                             <img src="images/GDV.PNG" alt="" class="img-fluid img-thumbnail">
+                                            <h5 style="text-align: center; margin-top: 8px">Giao dịch viên</h5>
                                         </div>
                                     </div>
                                     <button id="btn_avatar" class="btn primary-color-dark btn-block">Refresh</button>
@@ -268,7 +292,6 @@
             </div> <!-- Main ROW -->
         </div> <!-- Main container -->
     </div>
-    
 
     <!-- SCRIPTS -->
     <!-- JQuery -->

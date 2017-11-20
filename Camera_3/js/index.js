@@ -1,10 +1,6 @@
-// Camera Quality
-var defRes      = { video: true };
-var customRes   = { video: { mandatory: { minWidth: 1024, minHeight: 576 } } };
+const username = 'minh.chau.ctv';
 
-var snpShotCMND1 = false;
-var snpShotCMND2 = false;
-var snpShotAvatr = false;
+var mgd, folder;
 
 function setSelectOptions(select_id) {
     // Get user's selected camera
@@ -65,24 +61,48 @@ function startCam(select_id) {
 function videoError(e) { console.log(e); }
 
 function takeSnapshot() {
-    var camera  = document.querySelector('#' + this.id.replace('btn', 'camera')),
-        canvas  = document.querySelector('#' + this.id.replace('btn', 'can')),
-        ctx     = canvas.getContext('2d'),
-        w       = camera.videoWidth,
-        h       = camera.videoHeight;
+    if (mgd !== undefined) {
+        var camera  = document.querySelector('#' + this.id.replace('btn', 'camera')),
+            canvas  = document.querySelector('#' + this.id.replace('btn', 'can')),
+            ctx     = canvas.getContext('2d'),
+            w       = camera.videoWidth,
+            h       = camera.videoHeight;
 
-    canvas.width  = w;
-    canvas.height = h;
+        canvas.width    = w;
+        canvas.height   = h;
 
-    ctx.drawImage(camera, 0, 0, w, h);
+        ctx.drawImage(camera, 0, 0, w, h);
 
-    camera.style.display = "none";
-    canvas.style.display = "";
+        camera.style.display = "none";
+        canvas.style.display = "";
 
-    this.style.display = "none";
-    document.querySelector("#" + this.id + "_resnap").style.display = "";
-    // this.setAttribute('disabled', 'disabled');
-    // document.querySelector("#" + this.id + "_resnap").removeAttribute('disabled');
+        this.style.display = "none";
+        document.querySelector("#" + this.id + "_resnap").style.display = "";
+
+        // Dat ten cho anh
+        var pictureName = $('#isdn').val() + btnIdToName(this.id);
+
+        // Save picture
+        canvas.toBlob(function (blob) {
+            saveAs(blob, pictureName);
+        });
+
+        // Upload picture
+        // var base64Data = canvas.toDataURL('image/jpeg');
+        var base64Data = canvas.toDataURL('image/jpeg').replace('data:image/jpeg;base64,', '');
+        uploadPicture(pictureName, base64Data);
+    } else {
+        alert("Chưa kiểm tra thuê bao!");
+    }
+}
+
+btnIdToName = (btnId) => {
+    var x = btnId.replace('btn_', '');
+    switch (x) {
+        case 'avatar': return '_khachhang';
+        case 'cmnd_1': return '_mattruoc';
+        case 'cmnd_2': return '_matsau';
+    }
 }
 
 function reSnapShot() {
@@ -231,9 +251,118 @@ function setXa(maTinh, maHuyen = "") {
     }
 }
 
+ISDNSubmit = (evt) => {
+    // Ngan form reload lai page
+    evt.preventDefault();
+
+    var isdn = $('#isdn').val();
+    var serial = $('#serial').val();
+
+    // Kiem tra hop le cho isdn va serial
+
+    // Goi WS de kiem tra ISDN
+    $.ajax({
+        type: "POST",
+        contentType: "text/xml; charset=utf-8",
+        url: "http://10.151.120.69:6785/GDV.asmx?op=checkISDN",
+        data: 
+            `<?xml version="1.0" encoding="utf-8"?>
+            <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+                <soap:Body>
+                    <checkISDN xmlns="WSGDV">
+                        <lat>string</lat>
+                        <lng>string</lng>
+                        <username>${username}</username>
+                        <isdn>${isdn}</isdn>
+                        <serial>${serial}</serial>
+                    </checkISDN>
+                </soap:Body>
+            </soap:Envelope>`,
+        success: function (response) {
+            var responseJson = JSON.parse(response.getElementsByTagName('checkISDNResult')[0].innerHTML);
+
+            mgd = responseJson.code;
+            folder = responseJson.folder;
+
+            // Set Ma giao dich
+            $('#mgd').html(`<b>${mgd}</b>`);
+
+            // Show giao dien chuc nang
+            $('#custInfoContainer').css('display', '');
+            $('#cameraContainer').css('display', '');
+
+            // Khoi chay camera
+            startAllCam();
+        },
+        error: (err) => console.error(err)
+    });
+}
+
+uploadPicture = (fileName, base64Data) => {
+    $.ajax({
+        type: "POST",
+        contentType: "text/xml; charset=utf-8",
+        url: "http://10.151.120.69:6785/GDV.asmx?op=uploadFile",
+        data: 
+            `<?xml version="1.0" encoding="utf-8"?>
+            <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+                <soap:Body>
+                    <uploadFile xmlns="WSGDV">
+                        <lat>string</lat>
+                        <lng>string</lng>
+                        <username>${username}</username>
+                        <folder>${folder}</folder>
+                        <filename>${fileName + '.jpg'}</filename>
+                        <base64data>${base64Data}</base64data>
+                    </uploadFile>
+                </soap:Body>
+            </soap:Envelope>`,
+        success: (response) => {
+            console.log(response);
+        },
+        error: (err) => console.log(err)
+    });
+}
+
+setDoiTuong = () => {
+    // doituong
+    if(localStorage.doituong) {
+        var doiTuongJson = JSON.parse(localStorage.doituong);
+        setDataToSelect('doituong', doiTuongJson);
+    } else {
+        $.ajax({
+            type: "POST",
+            contentType: "text/xml; charset=utf-8",
+            url: "http://10.151.120.69:6785/GDV.asmx?op=jsonDoiTuong",
+            data:
+            `<?xml version="1.0" encoding="utf-8"?>
+            <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+                <soap:Body>
+                    <jsonDoiTuong xmlns="WSGDV">
+                        <lat>string</lat>
+                        <lng>string</lng>
+                        <username>${username}</username>
+                    </jsonDoiTuong>
+                </soap:Body>
+            </soap:Envelope>`,
+            success: function (response) {
+                var responseJson = JSON.parse(response.getElementsByTagName('jsonDoiTuongResult')[0].innerHTML);
+                setDataToSelect('doituong', responseJson);
+
+                // Save doi tuong to local storage
+                localStorage.setItem('doituong', JSON.stringify(responseJson));
+            }
+        });
+    }
+}
+
+// =====================================================================================================================================
+// UTILS
+// =====================================================================================================================================
+
 function updateHuyen() { setHuyen(this.value) }
 function updateXa() {
-    var maTinh = document.getElementById('thanhpho').value;
+    var maTinh = $('#thanhpho').val();;
     var maHuyen = this.value;
 
     setXa(maTinh, maHuyen);
@@ -251,6 +380,17 @@ function setDataToSelect(selectID, jsonData) {
 
         select.appendChild(option);
     });
+}
+
+checkNull = (inputId) => {
+    var x = $('#' + inputId).val();
+    return x === '' || x == 'undefined' || x == null;
+}
+startAllCam = () => {
+    // Start camera
+    startCam('sel_cmnd_1');
+    startCam('sel_cmnd_2');
+    startCam('sel_avatar');
 }
 
 // =====================================================================================================================================
@@ -274,16 +414,14 @@ document.getElementById("btn_avatar_resnap").addEventListener("click", reSnapSho
 document.getElementById('thanhpho').addEventListener('change', updateHuyen);
 document.getElementById('quanhuyen').addEventListener('change', updateXa);
 
+$('#isdnForm').submit((e) => ISDNSubmit(e));
+
 // =====================================================================================================================================
 // EXECUTE FUNCTION AFTER LOAD PAGE
 // =====================================================================================================================================
 
 window.onload = () => {
-    // Start camera
-    startCam('sel_cmnd_1');
-    startCam('sel_cmnd_2');
-    startCam('sel_avatar');
-
     // Load select
     setTinh();
+    setDoiTuong();
 }

@@ -61,3 +61,18 @@ h1, h2, h3, h4, .card, .jumbotron { margin-top: 15px; }
 .btn:hover, select {
     cursor: pointer;
 }
+.card-body-camera {
+    padding: 5px;
+}
+
+.col-camera {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+hr {
+  height: 1px;
+}
+.hr-primary{
+  background-color: #3F51B5;
+}
