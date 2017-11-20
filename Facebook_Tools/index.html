@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Facebook tools</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Container main -->
+    <div class="container">
+        <!-- Form Access token -->
+        <div class="card">
+            <div class="card-header color-indigo-600"> Lấy Access token </div>
+            <div class="card-body">
+                <!-- Alert access token -->
+                <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                    <strong>Chú ý!</strong> Bạn cần có Access token để thực hiện.
+                    <a href="https://developers.facebook.com/tools/explorer/145634995501895" target="_blank">
+                        Click vào đây!
+                    </a>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div> <!-- Alert access token -->
+                <form>
+                    <div class="form-group">
+                        <label for="accessToken">Access Token</label>
+                        <input type="text" name="accessToken" id="accessToken" class="form-control" required placeholder="Coppy Token và paste vào đây">
+                    </div>
+                    <button type="submit" id="btnTKSave" class="btn btn-primary">Lưu Token</button>
+                </form>
+            </div>
+        </div> <!-- Form Access token -->
+        <!-- Main form -->
+        <div class="card">
+            <div class="card-header color-indigo-600"> Công cụ </div>
+            <div class="container">
+                <h4 style="margin-top: 20px">Lấy Comment bài viết</h4>
+                <form>
+                    <div class="form-row">
+                        <div class="col-sm-12 col-md-8">
+                            <input type="text" id="linkPost" class="form-control" required placeholder="Dán đường dẫn của bài viết vào đây">
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <button type="submit" id="btnLinkPost" class="btn btn-primary btn-block">Lấy comment</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-body">
+                <table class="table" id="tblCmts">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Facebook</th>
+                            <th>Comment</th>
+                            <th>Photo</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                </table>
+                <div align='center'>
+                    <button id="btnRefreshPost" class="btn btn-primary">Lấy thêm Comment</button>
+                </div>
+            </div>
+        </div> <!-- Main form -->
+    </div> <!-- Container main -->
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/graphApi_1.js"></script>
+</body>
+
+</html>
