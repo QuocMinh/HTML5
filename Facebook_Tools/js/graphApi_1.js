@@ -32,7 +32,10 @@ getCmtPost = (postid) => {
                 var strCmnts = JSON.stringify(cmnts);
                 localStorage.setItem(postId, strCmnts);
             },
-            error: (err) => console.error(err)
+            error: (err) => {
+                console.error(err.responseJSON.error.message);
+                alert("LỖI! " + err.responseJSON.error.message);
+            }
         });
     }
 }
