@@ -76,3 +76,31 @@ hr {
 .hr-primary{
   background-color: #3F51B5;
 }
+.fa {
+    margin-right: 4px;
+}
+.check-snap {
+    font-size: 25px;
+    margin-bottom: 8px;
+    color: rgb(11, 238, 3);
+}
+.col-form-label {
+    padding-top: 0;
+    padding-bottom: 5px;
+}
+.form-group {
+    margin-bottom: 12px;
+}
+.suggest {
+    position: absolute;
+    display: none;
+    z-index: 1000;
+}
+.on-suggest {
+    display: block;
+}
+.custom-ui-item {
+    max-height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
