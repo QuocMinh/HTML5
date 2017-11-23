@@ -104,3 +104,9 @@ hr {
     overflow-x: hidden;
     overflow-y: auto;
 }
+ul.custom-ui-item > li > a {
+    text-decoration: none;
+}
+.ui-menu .ui-menu-item-wrapper {
+    padding-left: 0.5rem;
+}

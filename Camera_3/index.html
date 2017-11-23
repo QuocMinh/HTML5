@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Thông tin khách hàng</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
@@ -13,12 +12,10 @@
     <link href="css/jquery-ui.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="css/style.css" rel="stylesheet">
-    <!-- JQuery -->
-    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
-    
+    <title>Thông tin khách hàng</title>
 </head>
 <body>
+    <!-- PAGE -->
     <div style="height: 100vh;">
         <!-- Nav Bar -->
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #283593;">
@@ -97,8 +94,6 @@
                                         <label for="isdn" class="col-form-label">Số điện thoại</label>
                                         <div style="position: relative">
                                             <input type="text" id="isdn" class="form-control" required>
-                                            <!-- <select size='1' class="form-control suggest"></select> -->
-                                            <!-- <select size='1' name="tinh" id="tinh" class="form-control suggest"></select> -->
                                         </div>
                                     </div>
                                     <div class="col-md-6 form-group">
@@ -115,7 +110,6 @@
                     <div id="custInfoContainer" class="container customer-form boxshadow" style="display: none"> <!-- style="display: none" -->
                         <!-- Form Container : Thong tin ca nhan -->
                         <form>
-                            <!-- <p class="header-form primary-color">Thông tin khách hàng</p> -->
                             <h3 style="color: #3F51B5">Thông tin khách hàng</h3>
                             <hr class="hr-primary">
                             <div class="form-row">
@@ -153,16 +147,6 @@
                                     <label for="tinh" class="col-form-label">Tỉnh/TP</label>
                                     <input id="tinhInput" class="form-control" required placeholder="VD: CTH, BLI, ...">
                                     <input type="hidden" name="tinh" id="tinh">
-                                    
-                                    <!-- <div style="position: relative">
-                                        <input type="text" id="tinhInput" class="form-control" required placeholder="VD: CTH, BLI, ...">
-                                        
-                                        <select size='1' class="form-control suggest"></select>
-                                        <select size='2' multiple name="tinh" id="tinh" class="form-control suggest"></select>
-                                    </div> -->
-                                    <!-- <select name="tinh" id="tinh" class="form-control">
-                                        <option style="font-style: italic; font-weight: bold">Chọn ...</option>
-                                    </select> -->
                                 </div>
                                 <div class="col-md-4 form-group">
                                     <label for="huyen" class="col-form-label">Quận/Huyện</label>
@@ -330,15 +314,23 @@
     </div>
 
     <!-- SCRIPTS -->
-    
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="js/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <!-- My script -->
-    <script src="js/canvas-toBlob.js"></script>
-    <script src="js/FileSaver.min.js"></script>
-    <script src="js/index.js"></script>
+    <div style="display: none;">
+        <!-- JQuery -->
+        <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="js/popper.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <!-- My script -->
+        <script src="js/glo-param.js"></script>
+        <script src="js/canvas-toBlob.js"></script>
+        <script src="js/FileSaver.min.js"></script>
+        <script src="js/services.js"></script>
+        <script src="js/camera.js"></script>
+        <script src="js/events.js"></script>
+        <script src="js/index.js"></script>
+    </div>
 </body>
 
 </html>
