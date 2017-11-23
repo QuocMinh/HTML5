@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,7 +11,7 @@
     <!-- JQuery UI -->
     <link href="css/jquery-ui.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/my-style.css" rel="stylesheet">
     <title>Thông tin khách hàng</title>
 </head>
 <body>
@@ -75,11 +75,11 @@
                     
                 <!-- Customer Infomation -->
                 <div class="col-xl-5 col-md-12">
-                    <!-- Jumbotron Thong tin thue bao -->
-                    <div class="container customer-form boxshadow">
-                        <div class="header-form primary-color" style="margin-bottom: 10px">
+                    <!-- Container Thong tin thue bao -->
+                    <div class="container isdn-form">
+                        <div class="header-form primary-color">
                             <span>Thông tin thuê bao</span>
-                            <span id="mgd" style="float: right; margin-left: 5px; text-decoration: underline">
+                            <span id="mgd">
                                 <small>
                                     <i>(Chưa có mã giao dịch)</i>
                                 </small>
@@ -87,7 +87,7 @@
                             <span style="float: right">MGD: </span>
                         </div>
                         <!-- Form : Thong tin thue bao -->
-                        <form id="isdnForm">
+                        <form id="isdnForm" method="post">
                             <div class="container">
                                 <div class="form-row">
                                     <div class="col-md-6 form-group">
@@ -105,11 +105,11 @@
                                 <input type="reset" value="Reset" class="btn btn-secondary btn-md">
                             </div>
                         </form> <!-- Form : Thong tin thue bao -->
-                    </div> <!-- Jumbotron Thong tin thue bao -->
-                    <!-- Jumbotron Thong tin Khach hang -->
+                    </div> <!-- Container Thong tin thue bao -->
+                    <!-- Container Thong tin Khach hang -->
                     <div id="custInfoContainer" class="container customer-form boxshadow" style="display: none"> <!-- style="display: none" -->
                         <!-- Form Container : Thong tin ca nhan -->
-                        <form>
+                        <form id="customerForm" method="post">
                             <h3 style="color: #3F51B5">Thông tin khách hàng</h3>
                             <hr class="hr-primary">
                             <div class="form-row">
@@ -195,7 +195,9 @@
                                 </div>
                                 <div class="col-md-4 form-group">
                                     <label for="cmnd_noicap" class="col-form-label">Nơi cấp</label>
-                                    <input type="text" id="cmnd_noicap" class="form-control">
+                                    <!-- <input type="text" id="cmnd_noicap" class="form-control"> -->
+                                    <input id="cmnd_noicapInput" class="form-control" required placeholder="VD: CTH, BLI, ...">
+                                    <input type="hidden" name="cmnd_noicap" id="cmnd_noicap">
                                 </div>
                             </div>
                             <div align="right">
@@ -203,7 +205,7 @@
                                 <input type="reset" value="Reset" class="btn btn-secondary btn-md">
                             </div>
                         </form><!-- Form Container : Thong tin ca nhan -->
-                    </div> <!-- Jumbotron Thong tin Khach hang -->
+                    </div> <!-- Container Thong tin Khach hang -->
                 </div> <!-- Customer Infomation -->
 
                 <!-- Camera -->
@@ -231,7 +233,7 @@
                                         <button id="btn_cmnd_1_resnap" class="btn btn-dark" style="display: none">Chụp lại</button>
                                     </div>
                                 </div>
-                            </div>
+                            </div> <!--Panel-->
                         </div> <!-- Col cam 1 -->
                         <!-- Col cam 2 -->
                         <div class="col-md-12 col-lg-4">
@@ -254,7 +256,7 @@
                                         <button id="btn_cmnd_2_resnap" class="btn btn-dark" style="display: none">Chụp lại</button>
                                     </div>
                                 </div>
-                            </div>
+                            </div> <!--Panel-->
                         </div> <!-- Col cam 2 -->
                         <!-- Col cam 3 -->
                         <div class="col-md-12 col-lg-4">
@@ -277,12 +279,11 @@
                                         <button id="btn_avatar_resnap" class="btn btn-dark" style="display: none">Chụp lại</button>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <!-- Col cam 3 -->
+                            </div> <!--Panel-->
+                        </div> <!-- Col cam 3 -->
                     </div> <!-- Row cam 1 -->
                     
-                    <!-- Row cam 2 -->
+                    <!-- Row Chu ky -->
                     <div class="row">
                         <div class="col-md-12 col-lg-12">
                             <!--Panel-->
@@ -306,22 +307,22 @@
                                     <button id="btn_avatar" class="btn primary-color-dark btn-block">Refresh</button>
                                 </div>
                             </div>
-                        </div>
+                        </div> <!-- Row Chu ky -->
                     </div> <!-- Row cam 2 -->
                 </div> <!-- Camera -->
             </div> <!-- Main ROW -->
         </div> <!-- Main container -->
-    </div>
+    </div> <!-- PAGE -->
 
     <!-- SCRIPTS -->
     <div style="display: none;">
         <!-- JQuery -->
-        <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
         <!-- Bootstrap tooltips -->
-        <script type="text/javascript" src="js/popper.min.js"></script>
+        <script src="js/popper.min.js"></script>
         <!-- Bootstrap core JavaScript -->
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
         <!-- My script -->
         <script src="js/glo-param.js"></script>
         <script src="js/canvas-toBlob.js"></script>

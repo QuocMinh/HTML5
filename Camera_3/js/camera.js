@@ -86,7 +86,7 @@ function takeSnapshot() {
         // Save picture
         canvas.toBlob(function (blob) {
             saveAs(blob, pictureName);
-        });
+        }); 
 
         // Upload picture
         var base64Data = canvas.toDataURL('image/jpeg').replace('data:image/jpeg;base64,', '');

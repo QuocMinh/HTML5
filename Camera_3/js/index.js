@@ -1,7 +1,3 @@
-// =====================================================================================================================================
-// LOAD DATA FROM WEBSERVICEs
-// =====================================================================================================================================
-
 async function getTinh() {
     var returnVal = {};
 
@@ -14,8 +10,6 @@ async function getTinh() {
             size: Object.keys(jsonTinh).length,
             data: jsonTinh
         }
-
-        return Promise.resolve(returnVal);
     } else {
         var response = await $.ajax({
             type: "POST",
@@ -36,24 +30,21 @@ async function getTinh() {
             size: Object.keys(jsonTinh).length,
             data: jsonTinh
         }
-
-        return Promise.resolve(returnVal);
     }
+    return Promise.resolve(returnVal);
 }
 
 async function getHuyen(maTinh = 'AGI') {
     var returnVal = {};
 
     if (localStorage.getItem(maTinh)) {
-        var strHuyen = localStorage.getItem(maTinh);
+        var strHuyen  = localStorage.getItem(maTinh);
         var jsonHuyen = JSON.parse(strHuyen);
 
         returnVal = {
             size: Object.keys(jsonHuyen).length,
             data: jsonHuyen
         }
-
-        return Promise.resolve(returnVal);
     } else {
         var response = await $.ajax({
             type: "POST",
@@ -72,25 +63,22 @@ async function getHuyen(maTinh = 'AGI') {
             size: Object.keys(jsonHuyen).length,
             data: jsonHuyen
         }
-
-        return Promise.resolve(returnVal);
     }
+    return Promise.resolve(returnVal);
 }
 async function getXa(maTinh='AGI', maHuyen="TTO") {
-    var maHuyen = maHuyen === "" ? document.getElementById('huyen').value : maHuyen;
-    var keyXa = maTinh + maHuyen;
-    var returnVal = {};
+    var maHuyen     = maHuyen === "" ? document.getElementById('huyen').value : maHuyen;
+    var keyXa       = maTinh + maHuyen;
+    var returnVal   = {};
 
     if (localStorage.getItem(keyXa)) {
-        var strXa = localStorage.getItem(keyXa);
+        var strXa  = localStorage.getItem(keyXa);
         var jsonXa = JSON.parse(strXa);
 
         returnVal = {
             size: Object.keys(jsonXa).length,
             data: jsonXa
         }
-
-        return Promise.resolve(returnVal);
     } else {
         var response = await $.ajax({
             type: "POST",
@@ -98,9 +86,9 @@ async function getXa(maTinh='AGI', maHuyen="TTO") {
             headers: { 'Content-Type': 'text/xml; charset=utf-8' },
             data: jsonXaData(maTinh, maHuyen)
         });
-        var xmlXa = response.getElementsByTagName("jsonXaResult"),
-            jsonXa = JSON.parse(xmlXa[0].innerHTML),
-            strXa = JSON.stringify(jsonXa);
+        var xmlXa   = response.getElementsByTagName("jsonXaResult"),
+            jsonXa  = JSON.parse(xmlXa[0].innerHTML),
+            strXa   = JSON.stringify(jsonXa);
         // Save Xa to local storage with key = maTinh + maHuyen
         localStorage.setItem(keyXa, strXa);
         // Chuan bi du lieu de tra ra
@@ -108,8 +96,8 @@ async function getXa(maTinh='AGI', maHuyen="TTO") {
             size: Object.keys(jsonXa).length,
             data: jsonXa
         }
-        return Promise.resolve(returnVal);
     }
+    return Promise.resolve(returnVal);
 }
 ISDNSubmit = (evt) => {
     // Ngan form reload lai page
@@ -131,8 +119,8 @@ ISDNSubmit = (evt) => {
                 success: function (response) {
                     var responseJson = JSON.parse(response.getElementsByTagName('checkISDNResult')[0].innerHTML);
 
-                    mgd = responseJson.code;
-                    folder = responseJson.folder;
+                    mgd     = responseJson.code;
+                    folder  = responseJson.folder;
 
                     // Set Ma giao dich
                     $('#mgd').html(`<b>${mgd}</b>`);
@@ -169,6 +157,33 @@ setDoiTuong = () => {
             }
         });
     }
+}
+
+function customerSubmit(evt) {
+    evt.preventDefault();
+
+    var formData = {
+        isdn                : $('#isdn').val(),
+        serial              : $('#serial').val(),
+        doituong            : $('#doituong').val(),
+        hoten               : $('#hoten').val(),
+        gioitinh            : $('#gioitinh').val(),
+        ngaysinh            : $('#ngaysinh').val(),
+        quoctich            : $('#quoctich').val(),
+        tinh                : $('#tinh').val(),
+        huyen               : $('#huyen').val(),
+        xa                  : $('#xa').val(),
+        sonha               : $('#sonha').val(),
+        duong               : $('#duong').val(),
+        toap                : $('#toap').val(),
+        email               : $('#email').val(),
+        dienthoai_lienhe    : $('#dienthoai_lienhe').val(),
+        cmnd_id             : $('#cmnd_id').val(),
+        cmnd_ngaycap        : $('#cmnd_ngaycap').val(),
+        cmnd_noicap         : $('#cmnd_noicap').val(),
+    }
+
+    console.log('FormData', formData);
 }
 
 // =====================================================================================================================================
@@ -239,6 +254,9 @@ async function setAutoComplete(inputId) {
             console.log('maTinh: ', maTinh);
             console.log('maHuyen: ', maHuyen);
             await getXa(maTinh, maHuyen).then(val => data = prepareData(val.data)).catch(err => console.error(err));
+            break;
+        case 'cmnd_noicapInput':
+            await getTinh().then(val => data = prepareData(val.data)).catch(err => console.error(err));
             break;
     }
 

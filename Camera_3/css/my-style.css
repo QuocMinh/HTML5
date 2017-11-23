@@ -1,0 +1,103 @@
+h1, h2, h3, h4, .card, .jumbotron {
+  margin-top: 15px;
+}
+
+.header-form {
+  padding: 10px;
+  font-size: 18px;
+}
+
+.card .card-header {
+  background-color: #303F9F;
+  color: white;
+}
+
+.form-control {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.form-control, .btn {
+  border-radius: 0;
+}
+
+.primary-color-dark {
+  background-color: #303F9F;
+  color: white;
+}
+
+.primary-color {
+  background-color: #3F51B5;
+  color: white;
+}
+
+.card {
+  -webkit-box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
+}
+
+.isdn-form, .customer-form {
+  margin-top: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 5px;
+  border-top: 3px solid #303F9F;
+  border-bottom: 3px solid #303F9F;
+  -webkit-box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
+}
+
+.isdn-form .header-form {
+  margin-bottom: 10px;
+}
+
+.isdn-form .header-form #mgd {
+  float: right;
+  margin-left: 5px;
+  text-decoration: underline;
+}
+
+.btn:hover, select:hover {
+  cursor: pointer;
+}
+
+.card-body-camera {
+  padding: 5px;
+}
+
+hr {
+  height: 1px;
+}
+
+.hr-primary {
+  background-color: #3F51B5;
+}
+
+.check-snap {
+  font-size: 25px;
+  margin-bottom: 8px;
+  margin-right: 5px;
+  color: #0bee03;
+}
+
+.col-form-label {
+  padding-top: 0;
+  padding-bottom: 5px;
+}
+
+.form-group {
+  margin-bottom: 12px;
+}
+
+ul.custom-ui-item li a {
+  text-decoration: none;
+}
+
+.ui-menu .ui-menu-item-wrapper {
+  padding-left: 0.5rem;
+}
+ 
+
+ /*# sourceMappingURL= my-style.css.map */
