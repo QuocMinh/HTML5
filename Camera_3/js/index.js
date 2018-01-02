@@ -222,7 +222,7 @@ checkISDNFormat = (isdn) => {
 
 function setDataToSelect(selectID, jsonData) {
     var select = document.querySelector('#' + selectID);
-    select.innerHTML = ""; // remove all child 
+    select.innerHTML = ""; // remove all child
 
     jsonData.forEach((data) => {
         var option = document.createElement('option');
@@ -238,7 +238,7 @@ checkSerialFormat = (serial) => { return serial.length === serialLength; }
 
 async function setAutoComplete(inputId) {
     var data = [];
-    
+
     switch (inputId) {
         case 'tinhInput':
             await getTinh().then(val => data = prepareData(val.data) ).catch(err => console.error(err));
